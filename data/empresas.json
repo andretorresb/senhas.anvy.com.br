@@ -1,0 +1,27 @@
+[
+    {
+        "nome": "Contrutoxa",
+        "pcs": [
+            {
+                "pc": "Servidor",
+                "usuario": "Server",
+                "senha": "dA+wCqQRF4ipt2rmyO9SGQ=="
+            }
+        ]
+    },
+    {
+        "nome": "Ello Sinop",
+        "pcs": [
+            {
+                "pc": "Servidor",
+                "usuario": "Server",
+                "senha": "\/5ASgUuNQt2rm26q6xywXQ=="
+            },
+            {
+                "pc": "Andre",
+                "usuario": "ANDRE-ELLO",
+                "senha": "aPMWYyuNEwhaK+E+mK7INA=="
+            }
+        ]
+    }
+]
