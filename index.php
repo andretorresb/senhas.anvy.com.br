@@ -1,32 +1,23 @@
-<?php 
+<?php
 session_start();
 
-$erro = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario = $_POST['usuario'] ?? '';
-    $senha = $_POST['senha'] ?? '';
-
-    $users = file_exists('data/users.json') ? json_decode(file_get_contents('data/users.json'), true) : [];
-
-    foreach ($users as $user) {
-        if ($user['usuario'] === $usuario && password_verify($senha, $user['senha'])) {
-            $_SESSION['usuario'] = $usuario;
-            header('Location: dashboard.php');
-            exit;
-        }
-    }
-
-    $erro = "Usuario ou senha invalidos!";
+// Se já existe usuário na sessão, vai direto ao dashboard
+if (!empty($_SESSION['user_email'])) {
+    header('Location: bin/dashboard.php');
+    exit;
 }
-?>
 
+// Lê e limpa as mensagens de sessão
+$erro      = $_SESSION['erro']      ?? '';
+$old_email = $_SESSION['old_email'] ?? '';
+unset($_SESSION['erro'], $_SESSION['old_email']);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anvy - Gerenciador de Senhas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anvy - Gerenciador de Senhas</title>
 <link rel="shortcut icon" href="imagens/logo.png" type="image/x-icon">
 <style>
   * {
@@ -75,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     height: 20px;
   }
 
-  input[type="text"], input[type="password"] {
+  input[type="email"], input[type="password"] {
     width: 100%;
     padding: 8px 8px 8px 40px;
     border: 1px solid #ccc;
@@ -84,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     transition: border-color 0.3s;
   }
 
-  input[type="text"]:focus, input[type="password"]:focus {
+  input[type="email"]:focus, input[type="password"]:focus {
     border-color: #007bff;
     outline: none;
   }
@@ -105,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
   button img{
     height: 30px;
-    transform: translateX(-50%);
     animation: chamarAtencao 1s ease-in-out infinite;
   }
   @keyframes chamarAtencao {
@@ -113,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     transform: translateX(0);
   }
   50% {
-    transform: translateX(8px);
+    transform: translateX(10px);
   }
 }
  .error {
@@ -146,26 +136,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </style>
 </head>
 <body>
- <?php if ($erro): ?>
+  <?php if ($erro): ?>
     <p class="error"><?= htmlspecialchars($erro) ?></p>
   <?php endif; ?>
-<div class="login-container">
-  <img src="imagens/logomarcar-anvy.png" alt="Logomarca" class="logomarca">
 
-  <form method="post" autocomplete="off">
-    <div class="input-group">
-      <img src="icones/person_500dp_B7B7B7_FILL0_wght400_GRAD0_opsz48.svg" >
-      <input type="text" name="usuario" placeholder="Usuario" required>
-    </div>
+  <div class="login-container">
+    <img src="imagens/logomarcar-anvy.png" alt="Logomarca" class="logomarca">
 
-    <div class="input-group">
-      <img src="icones/lock_500dp_B7B7B7_FILL0_wght400_GRAD0_opsz48.svg" >
-      <input type="password" name="senha" placeholder="Senha" required>
-    </div>
+    <form method="post" autocomplete="off" action="acao_login.php">
+      <div class="input-group">
+        <img src="icones/person_500dp_B7B7B7_FILL0_wght400_GRAD0_opsz48.svg" >
+        <input
+          type="email"
+          name="email"
+          placeholder="E-mail"
+          required
+          value="<?= htmlspecialchars($old_email) ?>"
+        >
+      </div>
 
-    <button type="submit"><img src="icones/arrow_right_alt_500dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg"></button>
-  </form>
-</div>
+      <div class="input-group">
+        <img src="icones/lock_500dp_B7B7B7_FILL0_wght400_GRAD0_opsz48.svg">
+        <input type="password" name="senha" placeholder="Senha" required>
+      </div>
 
+      <button type="submit">
+        <img src="icones/arrow_right_alt_500dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg">
+      </button>
+    </form>
+  </div>
 </body>
 </html>

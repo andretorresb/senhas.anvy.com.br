@@ -1,6 +1,5 @@
 <?php
-require_once 'funcoes.php';
-protegerPagina();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,7 +37,6 @@ protegerPagina();
   </style>
 </head>
 <body>
-  <h1>Bem-vindo, <?= htmlspecialchars($_SESSION['usuario'], ENT_QUOTES, 'UTF-8') ?></h1>
   
   <div class="menu">
     <a href="novaempresa.php">Cadastrar Empresa</a>
