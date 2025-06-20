@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $erro = "Usuario ou senha invalidos.";
+    $erro = "Usuario ou senha invalidos!";
 }
 ?>
 
@@ -116,21 +116,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     transform: translateX(8px);
   }
 }
-  .error {
-    color: #d9534f;
-    text-align: center;
-    margin-bottom: 20px;
+ .error {
+  top: 0;
+  display: flex;
+  position: absolute;
+  margin: 10px auto;
+  color: #fff;
+  background-color: #d9534f ;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-align: center;
+  margin-bottom: 20px;
+  opacity: 1;                       /* garante que comece visível */
+  animation: esconder 4s ease forwards;
+  /* duration 4s total, ease timing, mantém o estado final (forwards) */
+}
+
+@keyframes esconder {
+  /* de 0 até 75% do tempo (3s) fica totalmente visível */
+  0%, 75% {
+    opacity: 1;
   }
+  /* de 75% até 100% (1s) faz fade para invisível */
+  100% {
+    opacity: 0;
+  }
+}
+
 </style>
 </head>
 <body>
-
-<div class="login-container">
-  <img src="imagens/logomarcar-anvy.png" alt="Logomarca" class="logomarca">
-
-  <?php if ($erro): ?>
+ <?php if ($erro): ?>
     <p class="error"><?= htmlspecialchars($erro) ?></p>
   <?php endif; ?>
+<div class="login-container">
+  <img src="imagens/logomarcar-anvy.png" alt="Logomarca" class="logomarca">
 
   <form method="post" autocomplete="off">
     <div class="input-group">
