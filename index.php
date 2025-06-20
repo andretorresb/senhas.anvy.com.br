@@ -26,45 +26,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Senhas login</title>
+<title>Anvy - Gerenciador de Senhas</title>
+<link rel="shortcut icon" href="imagens/logo.png" type="image/x-icon">
 <style>
-  /* Reset e ajustes b�sicos */
   * {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
   }
 
   body {
-    font-family: Arial, sans-serif;
     background: #f7f7f7;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    padding: 20px;
   }
 
   .login-container {
     background: white;
-    padding: 40px 30px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    width: 100%;
+    width: 95%;
     max-width: 400px;
   }
 
-  h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #333;
+  .logomarca{
+    width: 90%;
+    display: flex;
+    margin-inline: auto;
+    margin-bottom: 30px;
   }
 
   .input-group {
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 
-  .input-group svg {
+  .input-group img {
     position: absolute;
     top: 50%;
     left: 12px;
@@ -76,10 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   input[type="text"], input[type="password"] {
     width: 100%;
-    padding: 12px 12px 12px 42px;
+    padding: 8px 8px 8px 40px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 14px;
     transition: border-color 0.3s;
   }
 
@@ -90,35 +91,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   button {
     width: 100%;
-    padding: 14px;
     background-color: #007bff;
     border: none;
     color: white;
     font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
     transition: background-color 0.3s;
   }
 
   button:hover {
     background-color: #0056b3;
   }
-
-  p {
-    text-align: center;
-    margin-top: 20px;
+  button img{
+    height: 30px;
+    transform: translateX(-50%);
+    animation: chamarAtencao 1s ease-in-out infinite;
   }
-
-  a {
-    color: #007bff;
-    text-decoration: none;
+  @keyframes chamarAtencao {
+  0%, 100% {
+    transform: translateX(0);
   }
-
-  a:hover {
-    text-decoration: underline;
+  50% {
+    transform: translateX(8px);
   }
-
+}
   .error {
     color: #d9534f;
     text-align: center;
@@ -129,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
 <div class="login-container">
-  <h2>Login</h2>
+  <img src="imagens/logomarcar-anvy.png" alt="Logomarca" class="logomarca">
 
   <?php if ($erro): ?>
     <p class="error"><?= htmlspecialchars($erro) ?></p>
@@ -137,25 +134,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <form method="post" autocomplete="off">
     <div class="input-group">
-      <!-- �cone de usu�rio (SVG) -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-      </svg>
+      <img src="icones/person_500dp_B7B7B7_FILL0_wght400_GRAD0_opsz48.svg" >
       <input type="text" name="usuario" placeholder="Usuario" required>
     </div>
 
     <div class="input-group">
-      <!-- �cone de cadeado (senha) -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M18 10h-1V7a5 5 0 00-10 0v3H6a2 2 0 00-2 2v7a2 2 0 002 2h12a2 2 0 002-2v-7a2 2 0 00-2-2zm-6 6a2 2 0 110-4 2 2 0 010 4z"/>
-      </svg>
+      <img src="icones/lock_500dp_B7B7B7_FILL0_wght400_GRAD0_opsz48.svg" >
       <input type="password" name="senha" placeholder="Senha" required>
     </div>
 
-    <button type="submit">Entrar</button>
+    <button type="submit"><img src="icones/arrow_right_alt_500dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg"></button>
   </form>
-
-  <p><a href="register.php">Criar conta</a></p>
 </div>
 
 </body>
