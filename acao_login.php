@@ -1,5 +1,4 @@
 <?php
-// acao_login.php
 session_start();
 require_once 'conexao.php';
 
@@ -23,20 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     if ($user = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        // login ok
         $_SESSION['user_email'] = $user['email'];
         $_SESSION['user_id']    = $user['id'];
-        header('Location: bin/dashboard.php');
+        header('Location: bin/menu.php');
         exit;
     }
 
-    // login falhou: guarda erro e e-mail antigo
     $_SESSION['erro']      = 'E-mail ou senha inválidos, ou conta não ativada.';
     $_SESSION['old_email'] = $email;
     header('Location: index.php');
     exit;
 }
 
-// acesso direto sem POST
 header('Location: index.php');
 exit;

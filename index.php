@@ -1,13 +1,9 @@
 <?php
 session_start();
-
-// Se já existe usuário na sessão, vai direto ao dashboard
 if (!empty($_SESSION['user_email'])) {
-    header('Location: bin/dashboard.php');
+    header('Location: bin/menu.php');
     exit;
 }
-
-// Lê e limpa as mensagens de sessão
 $erro      = $_SESSION['erro']      ?? '';
 $old_email = $_SESSION['old_email'] ?? '';
 unset($_SESSION['erro'], $_SESSION['old_email']);
@@ -117,17 +113,14 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   border-radius: 3px;
   text-align: center;
   margin-bottom: 20px;
-  opacity: 1;                       /* garante que comece visível */
+  opacity: 1;          
   animation: esconder 4s ease forwards;
-  /* duration 4s total, ease timing, mantém o estado final (forwards) */
 }
 
 @keyframes esconder {
-  /* de 0 até 75% do tempo (3s) fica totalmente visível */
   0%, 75% {
     opacity: 1;
   }
-  /* de 75% até 100% (1s) faz fade para invisível */
   100% {
     opacity: 0;
   }
