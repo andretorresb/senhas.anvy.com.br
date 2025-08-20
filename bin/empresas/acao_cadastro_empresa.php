@@ -7,36 +7,60 @@ require_once '../../conexao.php';
 unset($_SESSION['erro'], $_SESSION['old']);
 
 // 1) recebe dados
-$id          = $_POST['id']             ?? null;
-$cnpj_cpf    = trim($_POST['cnpj_cpf']  ?? '');
+$id          = $_POST['id']                ?? null;
+$cnpj_cpf    = trim($_POST['cnpj_cpf']      ?? '');
 $nomeF       = trim($_POST['nome_fantasia'] ?? '');
-$razaoSocial = trim($_POST['razao_social']  ?? '');
+$razaoSocial = trim($_POST['razao_social']   ?? '');
 
 // funções de validação
 function validaCPF($cpf) {
     $cpf = preg_replace('/\D/', '', $cpf);
-    if (strlen($cpf) !== 11 || preg_match('/(\d)\1{10}/', $cpf)) return false;
+    if (strlen($cpf) !== 11 || preg_match('/(\d)\1{10}/', $cpf)) {
+        return false;
+    }
     for ($t = 9; $t < 11; $t++) {
         for ($d = 0, $c = 0; $c < $t; $c++) {
             $d += $cpf[$c] * (($t + 1) - $c);
         }
         $d = ((10 * $d) % 11) % 10;
-        if ($cpf[$c] != $d) return false;
+        if ($cpf[$c] != $d) {
+            return false;
+        }
     }
     return true;
 }
 
 function validaCNPJ($cnpj) {
     $cnpj = preg_replace('/\D/', '', $cnpj);
-    if (strlen($cnpj) !== 14 || preg_match('/(\d)\1{13}/', $cnpj)) return false;
-    $tabelas = [5,4,3,2,9,8,7,6,5,4,3,2];
-    for ($t = 12; $t < 14; $t++) {
-        for ($d = 0, $c = 0; $c < $t; $c++) {
-            $d += $cnpj[$c] * $tabelas[$c + ($t - 12)];
-        }
-        $d = ($d % 11) < 2 ? 0 : 11 - ($d % 11);
-        if ($cnpj[$c] != $d) return false;
+    // Deve ter 14 dígitos e não pode ser sequência repetida
+    if (strlen($cnpj) !== 14 || preg_match('/(\d)\1{13}/', $cnpj)) {
+        return false;
     }
+
+    // --- Primeiro dígito verificador ---
+    $pesos1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    $soma = 0;
+    for ($i = 0; $i < 12; $i++) {
+        $soma += $cnpj[$i] * $pesos1[$i];
+    }
+    $resto = $soma % 11;
+    $digito1 = ($resto < 2) ? 0 : 11 - $resto;
+    if ((int)$cnpj[12] !== $digito1) {
+        return false;
+    }
+
+    // --- Segundo dígito verificador ---
+    $pesos2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    $soma = 0;
+    for ($i = 0; $i < 13; $i++) {
+        $soma += $cnpj[$i] * $pesos2[$i];
+    }
+    $resto = $soma % 11;
+    $digito2 = ($resto < 2) ? 0 : 11 - $resto;
+    if ((int)$cnpj[13] !== $digito2) {
+        return false;
+    }
+
     return true;
 }
 
