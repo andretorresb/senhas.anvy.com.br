@@ -90,7 +90,7 @@ if (empty($_SESSION['user_email'])) {
     <a href="empresas/empresas.php"       target="contentFrame">Cadastro de Empresas</a>
     <a href="computadores/computadores.php"       target="contentFrame">Cadastro de Computadores</a>
     <a href="usuarios/usuarios.php"       target="contentFrame">Cadastro de Usuários</a>
-    <a href="logout.php"            target="contentFrame">Sair</a>
+    <a href="logout.php"           >Sair</a>
   </div>
 
   <iframe id="contentFrame" name="contentFrame" src="dashboard.php"></iframe>
