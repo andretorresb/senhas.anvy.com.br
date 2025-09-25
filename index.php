@@ -13,8 +13,8 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anvy - Gerenciador de Senhas</title>
-<link rel="shortcut icon" href="imagens/logo.png" type="image/x-icon">
+  <title>Ello - Gerenciador de Senhas</title>
+<link rel="shortcut icon" href="imagens/logo.webp" type="image/x-icon">
 <style>
   * {
     margin: 0;
@@ -24,7 +24,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   }
 
   body {
-    background: #f7f7f7;
+    background: #f1f1f1ff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,13 +72,13 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   }
 
   input[type="email"]:focus, input[type="password"]:focus {
-    border-color: #007bff;
+    border-color: #F28B30;
     outline: none;
   }
 
   button {
     width: 100%;
-    background-color: #007bff;
+    background-color: #F28B30;
     border: none;
     color: white;
     font-weight: bold;
@@ -88,7 +88,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   }
 
   button:hover {
-    background-color: #0056b3;
+    background-color: #F28B30;
   }
   button img{
     height: 30px;
@@ -134,7 +134,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   <?php endif; ?>
 
   <div class="login-container">
-    <img src="imagens/logomarcar-anvy.png" alt="Logomarca" class="logomarca">
+    <img src="imagens/logomarca_ello.webp" alt="Logomarca" class="logomarca">
 
     <form method="post" autocomplete="off" action="acao_login.php">
       <div class="input-group">

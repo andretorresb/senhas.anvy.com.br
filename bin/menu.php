@@ -10,8 +10,8 @@ if (empty($_SESSION['user_email'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anvy - Gerenciador de Senhas</title>
-  <link rel="shortcut icon" href="../imagens/logo.png" type="image/x-icon">
+  <title>Ello - Gerenciador de Senhas</title>
+  <link rel="shortcut icon" href="../imagens/logo.webp" type="image/x-icon">
   <style>
      * {
     margin: 0;
@@ -25,7 +25,7 @@ if (empty($_SESSION['user_email'])) {
   header{
     width: 100%;
     height: 50px;
-    background-color: #007bff;
+    background-color: #F28B30;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
     display:flex;
   }
@@ -82,7 +82,7 @@ if (empty($_SESSION['user_email'])) {
 <body>
   <header>
     <img id="btnMenu" src="../icones/dehaze_500dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg" alt="Menu">
-    <span>Anvy - Gerenciador de Senhas</span>
+    <span>Ello - Gerenciador de Senhas</span>
   </header>
 
   <div class="menu" id="menu">
@@ -90,7 +90,7 @@ if (empty($_SESSION['user_email'])) {
     <a href="empresas/empresas.php"       target="contentFrame">Cadastro de Empresas</a>
     <a href="computadores/computadores.php"       target="contentFrame">Cadastro de Computadores</a>
     <a href="usuarios/usuarios.php"       target="contentFrame">Cadastro de Usuários</a>
-    <a href="logout.php"            target="contentFrame">Sair</a>
+    <a href="logout.php"           >Sair</a>
   </div>
 
   <iframe id="contentFrame" name="contentFrame" src="dashboard.php"></iframe>

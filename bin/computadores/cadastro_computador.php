@@ -45,7 +45,7 @@ if ($id && empty($old)) {
   <title><?= $id ? 'Editar' : 'Cadastrar' ?> Computador</title>
   <style>
     :root {
-      --primary: #4A90E2;
+      --primary: #F28B30;
       --light:   #F5F7FA;
       --gray:    #7A8A99;
       --dark:    #333;
