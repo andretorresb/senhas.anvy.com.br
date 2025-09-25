@@ -24,7 +24,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   }
 
   body {
-    background: #e41c1cff;
+    background: #f1f1f1ff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,13 +72,13 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   }
 
   input[type="email"]:focus, input[type="password"]:focus {
-    border-color: #007bff;
+    border-color: #F28B30;
     outline: none;
   }
 
   button {
     width: 100%;
-    background-color: #007bff;
+    background-color: #F28B30;
     border: none;
     color: white;
     font-weight: bold;
@@ -88,7 +88,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   }
 
   button:hover {
-    background-color: #0056b3;
+    background-color: #F28B30;
   }
   button img{
     height: 30px;
