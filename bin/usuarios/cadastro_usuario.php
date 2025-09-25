@@ -31,7 +31,7 @@ if ($id && empty($old)) {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title><?= $id?'Editar':'Cadastrar' ?> Usuário</title>
   <style>
-    :root{--primary:#4A90E2;--light:#F5F7FA;--gray:#7A8A99;--dark:#333;--radius:6px;--spacing:16px;}
+    :root{--primary:#F28B30;--light:#F5F7FA;--gray:#7A8A99;--dark:#333;--radius:6px;--spacing:16px;}
     *{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Segoe UI',sans-serif;background:var(--light);color:var(--dark);display:flex;justify-content:center;padding:var(--spacing);}
     .card{background:#fff;padding:calc(var(--spacing)*1.5);border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,0.05);width:100%;max-width:400px;}

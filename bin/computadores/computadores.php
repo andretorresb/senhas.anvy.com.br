@@ -61,7 +61,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
     :root {
-      --primary: #4A90E2;
+      --primary: #F28B30;
       --light: #F5F7FA;
       --gray: #7A8A99;
       --dark: #333;
