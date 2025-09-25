@@ -155,7 +155,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
         <input type="password" name="senha" placeholder="Senha" required>
       </div>
 
-      <button type="submit"> Entrar 
+      <button type="submit">
         <img src="icones/arrow_right_alt_500dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg">
       </button>
     </form>
