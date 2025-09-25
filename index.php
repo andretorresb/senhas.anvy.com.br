@@ -134,7 +134,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   <?php endif; ?>
 
   <div class="login-container">
-    <img src="imagens/logomarca_ello.webp" alt="Logomarca" class="logomarca">
+    <img src="imagens/logomarca.webp" alt="Logomarca" class="logomarca">
 
     <form method="post" autocomplete="off" action="acao_login.php">
       <div class="input-group">
