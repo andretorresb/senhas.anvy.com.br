@@ -24,7 +24,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   }
 
   body {
-    background: #f7f7f7;
+    background: #e41c1cff;
     display: flex;
     justify-content: center;
     align-items: center;
