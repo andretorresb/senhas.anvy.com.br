@@ -13,8 +13,8 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anvy - Gerenciador de Senhas</title>
-<link rel="shortcut icon" href="imagens/logo.png" type="image/x-icon">
+  <title>Ello - Gerenciador de Senhas</title>
+<link rel="shortcut icon" href="imagens/logo.webp" type="image/x-icon">
 <style>
   * {
     margin: 0;
