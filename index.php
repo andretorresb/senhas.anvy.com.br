@@ -44,7 +44,8 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
     width: 40%;
     display: flex;
     margin-inline: auto;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    margin-top: 30px;
   }
 
   .input-group {
