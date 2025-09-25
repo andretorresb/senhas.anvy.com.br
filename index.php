@@ -86,7 +86,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 50px;
+    margin-top: 25px;
   }
 
   button:hover {
@@ -155,7 +155,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
         <input type="password" name="senha" placeholder="Senha" required>
       </div>
 
-      <button type="submit">
+      <button type="submit"> Entrar 
         <img src="icones/arrow_right_alt_500dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg">
       </button>
     </form>
