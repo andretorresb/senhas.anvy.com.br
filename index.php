@@ -44,7 +44,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
     width: 40%;
     display: flex;
     margin-inline: auto;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     margin-top: 30px;
   }
 
