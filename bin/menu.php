@@ -11,7 +11,7 @@ if (empty($_SESSION['user_email'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ello - Gerenciador de Senhas</title>
-  <link rel="shortcut icon" href="../imagens/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../imagens/logo.webp" type="image/x-icon">
   <style>
      * {
     margin: 0;
