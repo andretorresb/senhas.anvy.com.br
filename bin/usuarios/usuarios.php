@@ -29,7 +29,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <title>Usuários</title>
   <style>
     :root {
-      --primary:#4A90E2;--light:#F5F7FA;--gray:#7A8A99;
+      --primary:#F28B30;--light:#F5F7FA;--gray:#7A8A99;
       --dark:#333;--radius:6px;--spacing:16px;
     }
     *{box-sizing:border-box;margin:0;padding:0;}
