@@ -44,7 +44,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
     width: 40%;
     display: flex;
     margin-inline: auto;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     margin-top: 30px;
   }
 
@@ -86,6 +86,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 50px;
   }
 
   button:hover {
