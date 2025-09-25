@@ -41,7 +41,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   }
 
   .logomarca{
-    width: 90%;
+    width: 70%;
     display: flex;
     margin-inline: auto;
     margin-bottom: 30px;
