@@ -41,10 +41,11 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   }
 
   .logomarca{
-    width: 90%;
+    width: 40%;
     display: flex;
     margin-inline: auto;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    margin-top: 30px;
   }
 
   .input-group {
@@ -85,6 +86,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 25px;
   }
 
   button:hover {
@@ -134,7 +136,7 @@ unset($_SESSION['erro'], $_SESSION['old_email']);
   <?php endif; ?>
 
   <div class="login-container">
-    <img src="imagens/logomarca_ello.webp" alt="Logomarca" class="logomarca">
+    <img src="imagens/logomarca.webp" alt="Logomarca" class="logomarca">
 
     <form method="post" autocomplete="off" action="acao_login.php">
       <div class="input-group">
